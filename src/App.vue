@@ -17,10 +17,11 @@ export default {
     }
   },
   created() {
-    
+
   },
   methods: {
-    searchResult() {
+
+    searchMovies() {
       axios
         .get("https://api.themoviedb.org/3/search/movie?api_key=eb01afe2b45b7303c28f1174082827ed",
           {
@@ -29,16 +30,30 @@ export default {
           }
         )
         .then((response) => {
-          store.filmResult = response.data.results
+          store.moviesResult = response.data.results
         });
-    }
+    },
+
+    searchSeries() {
+      axios
+        .get("https://api.themoviedb.org/3/search/tv?api_key=eb01afe2b45b7303c28f1174082827ed",
+          {
+            params:
+              { query: store.searchText }
+          }
+        )
+        .then((response) => {
+          store.seriesResult = response.data.results
+        });
+    },
+
   }
 }
 </script>
 
 <template>
 
-  <AppHeader @searchResult="searchResult" />
+  <AppHeader @searchResult="searchMovies(); searchSeries(); " />
   <AppMain />
 
 </template>

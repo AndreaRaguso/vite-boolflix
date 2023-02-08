@@ -16,7 +16,7 @@ export default {
 
     <!-- LINKS -->
     <section class="link">
-        <div class="logos">
+        <div class="logos d-flex">
             <a href="#"><i class="fab fa-facebook-square fa-2x logo"></i></a>
             <a href="#"><i class="fab fa-instagram fa-2x logo"></i></a>
             <a href="#"><i class="fab fa-twitter fa-2x logo"></i></a>

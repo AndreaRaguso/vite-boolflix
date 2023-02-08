@@ -1,6 +1,7 @@
 <script>
 
 import axios from 'axios';
+import AppLogin from './components/AppLogin.vue';
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
 import AppFooter from './components/AppFooter.vue';
@@ -9,6 +10,7 @@ import { store } from './store.js';
 export default {
   name: "App",
   components: {
+    AppLogin,
     AppHeader,
     AppMain,
     AppFooter
@@ -20,10 +22,10 @@ export default {
   },
   created() {
     axios
-        .get("https://api.themoviedb.org/3/search/movie?api_key=eb01afe2b45b7303c28f1174082827ed")
-        .then((response) => {
-          store.moviesResult = response.data.results
-        });
+      .get("https://api.themoviedb.org/3/search/movie?api_key=eb01afe2b45b7303c28f1174082827ed")
+      .then((response) => {
+        store.moviesResult = response.data.results
+      });
   },
   computed: {
 
@@ -32,15 +34,15 @@ export default {
         .get("https://api.themoviedb.org/3/search/movie?api_key=eb01afe2b45b7303c28f1174082827ed",
           {
             params:
-              { 
-                query: store.searchText,
-                language: 'it-IT'
-              }
+            {
+              query: store.searchText,
+              language: 'it-IT'
+            }
           }
         )
         .then((response) => {
           store.moviesResult = response.data.results
-          store.loadingResult= true
+          store.loadingResult = true
         });
     },
 
@@ -49,15 +51,15 @@ export default {
         .get("https://api.themoviedb.org/3/search/tv?api_key=eb01afe2b45b7303c28f1174082827ed",
           {
             params:
-              { 
-                query: store.searchText,
-                language: 'it-IT' 
-              }
+            {
+              query: store.searchText,
+              language: 'it-IT'
+            }
           }
         )
         .then((response) => {
           store.seriesResult = response.data.results
-          store.loadingResult= true
+          store.loadingResult = true
         });
     },
 
@@ -67,9 +69,15 @@ export default {
 
 <template>
 
-  <AppHeader @searchResult="searchMovies,searchSeries" />
+  
+<AppLogin v-if="store.loginOk == false"/>
+
+<span v-else>
+  <AppHeader @searchResult="searchMovies, searchSeries" />
   <AppMain />
   <AppFooter />
+</span>
+
 
 </template>
 

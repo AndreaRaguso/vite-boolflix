@@ -6,6 +6,7 @@ export const store = reactive({
     seriesResult: [],
     starRate: 0,
     loadingResult: false,
+    loginOk: false,
 
 
 

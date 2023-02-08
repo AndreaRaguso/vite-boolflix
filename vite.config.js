@@ -9,6 +9,7 @@ export default defineConfig({
         scss: {
             additionalData: `
                 @import './src/styles/partials/reset.scss';
+                @import './src/styles/partials/AppLogin.scss';
                 @import './src/styles/partials/AppHeader.scss';
                 @import './src/styles/partials/AppMain.scss';
                 @import './src/styles/partials/AppFooter.scss';

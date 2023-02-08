@@ -4,6 +4,7 @@ export const store = reactive({
     searchText: '',
     moviesResult: [],
     seriesResult: [],
+    imageFound: false,
 
 
 
@@ -22,6 +23,22 @@ export const store = reactive({
         {
             lingua: 'it',
             bandiera: "https://img.icons8.com/color/48/null/italy.png",
+        },
+        {
+            lingua: 'de',
+            bandiera: "https://img.icons8.com/color/48/null/belgium.png",
+        },
+        {
+            lingua: 'ko',
+            bandiera: "https://img.icons8.com/color/48/null/south-korea-circular.png",
+        },
+        {
+            lingua: 'fr',
+            bandiera: "https://img.icons8.com/color/48/null/france.png",
+        },
+        {
+            lingua: 'ja',
+            bandiera: "https://img.icons8.com/color/48/null/japan.png",
         },
 
     ]

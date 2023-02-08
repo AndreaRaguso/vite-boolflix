@@ -19,7 +19,7 @@ export default {
   created() {
 
   },
-  methods: {
+  computed: {
 
     searchMovies() {
       axios
@@ -53,7 +53,7 @@ export default {
 
 <template>
 
-  <AppHeader @searchResult="searchMovies(); searchSeries(); " />
+  <AppHeader @searchResult="searchMovies,searchSeries" />
   <AppMain />
 
 </template>

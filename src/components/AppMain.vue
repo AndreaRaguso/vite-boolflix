@@ -52,10 +52,10 @@ export default {
 
     <main>
 
-        <section class="main-container">
+        <section class="main-container" v-show="store.loadingResult == true">
 
             <div class="location" id="home">
-                <strong v-show="store.loadingResult == true" class="box-title" id="home">Film</strong>
+                <strong  class="box-title" id="home">Film</strong>
                 <div class="box">
 
                     <div class="item" v-for="movie, index in store.moviesResult">
@@ -77,7 +77,7 @@ export default {
             </div>
 
 
-            <strong v-show="store.loadingResult == true" class="box-title" id="myList">Serie TV</strong>
+            <strong  class="box-title" id="myList">Serie TV</strong>
             <div class="box">
                 <div class="item" v-for="serie, i in store.seriesResult">
                     <div class="item-poster">

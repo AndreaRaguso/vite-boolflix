@@ -13,6 +13,7 @@ export const store = reactive({
 
 
 
+
     flags: [
         {
             lingua: 'en',

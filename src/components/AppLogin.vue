@@ -27,7 +27,7 @@ export default {
             <h3>Watch anywhere. Cancel anytime.
             </h3>
 
-            <div class="search">
+            <div class="search d-flex align-items-center">
                 <input type="text" class="box" placeholder="Email">
                 <span class="try">
                     Try 30 days free <i class="fas fa-chevron-right"></i>

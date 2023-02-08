@@ -26,7 +26,10 @@ export default {
         .get("https://api.themoviedb.org/3/search/movie?api_key=eb01afe2b45b7303c28f1174082827ed",
           {
             params:
-              { query: store.searchText }
+              { 
+                query: store.searchText,
+                language: 'it-IT'
+              }
           }
         )
         .then((response) => {
@@ -39,7 +42,10 @@ export default {
         .get("https://api.themoviedb.org/3/search/tv?api_key=eb01afe2b45b7303c28f1174082827ed",
           {
             params:
-              { query: store.searchText }
+              { 
+                query: store.searchText,
+                language: 'it-IT' 
+              }
           }
         )
         .then((response) => {

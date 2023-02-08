@@ -1,0 +1,71 @@
+
+/* HEADER */
+header {
+    position: fixed;
+    top: 0;
+    background-color: var(--primary);
+    width: 100%;
+    margin-bottom: 0px;
+}
+
+.netflixLogo {
+    object-fit: cover;
+    width: 200px;
+    max-height: 100%;
+    padding-left: 30px;
+    padding-top: 0px;
+}
+
+.netflixLogo img {
+    height: 35px;
+}
+
+#logo {
+    color: #E50914;
+    margin: 0;
+    padding: 0;
+}
+
+.main-nav a {
+    color: var(--light);
+    text-decoration: none;
+    margin: 10px;
+}
+
+.main-nav a:hover {
+    color: var(--dark);
+}
+
+.sub-nav {
+    padding: 0 40px 0 40px;
+}
+
+.sub-nav a {
+    color: var(--light);
+    text-decoration: none;
+    margin: 5px;
+}
+
+.sub-nav a:hover {
+    color: var(--dark);
+}
+
+
+.search-input{
+    background-color: var(--primary);
+    box-shadow: none;
+    border: 1px solid white;
+    border-radius: none;
+    padding: 5px 20px;
+    color: white;
+    font-size: 20px;
+}
+
+.search-button{
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    position: absolute;
+    top: 7px;
+    right: 5px;
+}

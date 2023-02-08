@@ -3,13 +3,15 @@
 import axios from 'axios';
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
+import AppFooter from './components/AppFooter.vue';
 import { store } from './store.js';
 
 export default {
   name: "App",
   components: {
     AppHeader,
-    AppMain
+    AppMain,
+    AppFooter
   },
   data() {
     return {
@@ -17,7 +19,11 @@ export default {
     }
   },
   created() {
-
+    axios
+        .get("https://api.themoviedb.org/3/search/movie?api_key=eb01afe2b45b7303c28f1174082827ed")
+        .then((response) => {
+          store.moviesResult = response.data.results
+        });
   },
   computed: {
 
@@ -34,6 +40,7 @@ export default {
         )
         .then((response) => {
           store.moviesResult = response.data.results
+          store.loadingResult= true
         });
     },
 
@@ -50,6 +57,7 @@ export default {
         )
         .then((response) => {
           store.seriesResult = response.data.results
+          store.loadingResult= true
         });
     },
 
@@ -61,6 +69,7 @@ export default {
 
   <AppHeader @searchResult="searchMovies,searchSeries" />
   <AppMain />
+  <AppFooter />
 
 </template>
 

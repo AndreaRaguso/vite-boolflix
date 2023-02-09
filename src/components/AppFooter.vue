@@ -38,14 +38,14 @@ export default {
                 <li><a href="#">Contact Us</a></li>
             </ul>
         </div>
+        <footer class="mx-auto mt-5">
+            <p>&copy 1997-2018 Netflix, Inc.</p>
+            <p>Carlos Avila &copy 2018</p>
+        </footer>
     </section>
     <!-- END OF LINKS -->
 
     <!-- FOOTER -->
-    <footer>
-        <p>&copy 1997-2018 Netflix, Inc.</p>
-        <p>Carlos Avila &copy 2018</p>
-    </footer>
 
 </template>
 

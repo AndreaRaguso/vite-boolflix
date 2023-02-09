@@ -1,5 +1,4 @@
 <script>
-
 import { store } from '../store.js';
 
 export default {
@@ -10,30 +9,25 @@ export default {
         }
     },
     methods: {
-        flagMovie(i) {
-            for (let index = 0; index < store.flags.length; index++) {
-                if (store.flags[index].lingua == store.moviesResult[i].original_language) {
-                    return store.flags[index].bandiera
-                }
+        getFlag(lang) {
+
+            switch (lang) {
+                case 'en':
+                    lang = 'uk';
+                    break;
+                case 'pt':
+                    lang = 'po';
+                    break;
+                case 'es':
+                    lang = 'sp';
+                    break;
             }
+
+            const flag = 'https://www.worldometers.info//img/flags/small/tn_' + lang + '-flag.gif';
+
+            return flag;
         },
-        flagSerie(i) {
-            for (let index = 0; index < store.flags.length; index++) {
-                if (store.flags[index].lingua == store.seriesResult[i].original_language) {
-                    return store.flags[index].bandiera
-                }
-            }
-        },
-        starMovie(index) {
-            store.starRate = store.moviesResult[index].vote_average / 2;
-            store.starRate = Math.ceil(store.starRate);
-            if (store.starRate == 0) {
-                return store.starRate = 1
-            }
-            return store.starRate
-        },
-        starSerie(i) {
-            store.starRate = store.seriesResult[i].vote_average / 2;
+        getStar() {
             store.starRate = Math.ceil(store.starRate);
             if (store.starRate == 0) {
                 return store.starRate = 1
@@ -52,12 +46,11 @@ export default {
 
     <main>
 
-        <section class="main-container" v-show="store.loadingResult == true">
+        <section class="main-container">
 
-            <div class="location" id="home">
-                <strong  class="box-title" id="home">Film</strong>
+            <div class="location" id="home" v-show="store.moviesResult != ''">
+                <strong class="box-title" id="home">Film</strong>
                 <div class="box">
-
                     <div class="item" v-for="movie, index in store.moviesResult">
                         <div class="item-poster w-100">
                             <img v-if="movie.poster_path == null" :src="store.unknowImage" alt="unknow image">
@@ -66,10 +59,14 @@ export default {
                         <div class="info-item">
                             <div>{{ movie.title }}</div>
                             <div v-if="movie.title != movie.original_title">{{ movie.original_title }}</div>
-                            <img class="h-50" :src="flagMovie(index)" alt="">
+                            <div class="h-75 w-75">
+                                <img class="h-25 w-25" :src="getFlag(movie.original_language)" alt="">
+                            </div>
                             <div class="d-flex w-100">
-                                <img v-for="x in starMovie(index)" src="https://img.icons8.com/color/20/null/filled-star--v1.png" />
-                                <img class="white-star" v-show="store.starRate < 5" v-for="y in rating()" src="https://img.icons8.com/ios-filled/18/FFFFFF/filled-star.png" />
+                                <img v-for="x in getStar(store.starRate = movie.vote_average / 2)"
+                                    src="https://img.icons8.com/color/20/null/filled-star--v1.png" />
+                                <img class="white-star" v-show="store.starRate < 5" v-for="y in rating()"
+                                    src="https://img.icons8.com/ios-filled/18/FFFFFF/filled-star.png" />
                             </div>
                         </div>
                     </div>
@@ -78,23 +75,33 @@ export default {
             </div>
 
 
-            <strong  class="box-title" id="myList">Serie TV</strong>
-            <div class="box">
-                <div class="item" v-for="serie, i in store.seriesResult">
-                    <div class="item-poster">
-                        <img v-if="serie.poster_path == null" :src="store.unknowImage" alt="unknow image">
-                        <img v-else :src="'https://image.tmdb.org/t/p/w342' + serie.poster_path" alt="">
-                    </div>
-                    <div class="info-item">
-                        <div>{{ serie.name }}</div>
-                        <div v-if="serie.name != serie.original_name">{{ serie.original_name }}</div>
-                        <img :src="flagSerie(i)" alt="">
-                        <div class="d-flex">
-                            <img v-for="x in starSerie(i)" src="https://img.icons8.com/color/20/null/filled-star--v1.png" />
-                            <img v-show="store.starRate < 5" v-for="y in rating()" src="https://img.icons8.com/ios-filled/18/FFFFFF/filled-star.png" />
+            <div v-show="store.seriesResult != ''">
+                <strong class="box-title" id="myList">Serie TV</strong>
+                <div class="box">
+                    <div class="item" v-for="serie, i in store.seriesResult">
+                        <div class="item-poster">
+                            <img v-if="serie.poster_path == null" :src="store.unknowImage" alt="unknow image">
+                            <img v-else :src="'https://image.tmdb.org/t/p/w342' + serie.poster_path" alt="">
+                        </div>
+                        <div class="info-item">
+                            <div>{{ serie.name }}</div>
+                            <div v-if="serie.name != serie.original_name">{{ serie.original_name }}</div>
+                            <div class="w-75 h-75">
+                                <img class="w-25 h-25" :src="getFlag(serie.original_language)" alt="">
+                            </div>
+                            <div class="d-flex">
+                                <img v-for="x in getStar(store.starRate = serie.vote_average / 2)"
+                                    src="https://img.icons8.com/color/20/null/filled-star--v1.png" />
+                                <img v-show="store.starRate < 5" v-for="y in rating()"
+                                    src="https://img.icons8.com/ios-filled/18/FFFFFF/filled-star.png" />
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div class="fs-1 py-5 text-center" v-show="store.moviesResult==''&&store.seriesResult==''" >
+                Nessun Risultato per : {{ store.searchText }}
             </div>
 
         </section>

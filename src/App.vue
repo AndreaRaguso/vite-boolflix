@@ -23,12 +23,52 @@ export default {
     }
   },
   created() {
+
+    // Serie Latest
     axios
-      .get("https://api.themoviedb.org/3/search/movie?api_key=eb01afe2b45b7303c28f1174082827ed&query=natale")
+      .get("https://api.themoviedb.org/3/tv/latest?api_key=eb01afe2b45b7303c28f1174082827ed&language=it-IT")
       .then((response) => {
-        store.moviesResult = response.data.results
-        store.loadingResult = true
+        store.seriesLatest = response.data.results.slice(0,6)
       });
+
+    // Serie Popular
+    axios
+      .get("https://api.themoviedb.org/3/tv/popular?api_key=eb01afe2b45b7303c28f1174082827ed&language=it-IT")
+      .then((response) => {
+        store.seriesPopular = response.data.results.slice(0,6)
+      });
+    // Serie Top Rated
+    axios
+      .get("https://api.themoviedb.org/3/tv/top_rated?api_key=eb01afe2b45b7303c28f1174082827ed&language=it-IT")
+      .then((response) => {
+        store.seriesRated = response.data.results.slice(0,6)
+      });
+    // Movie Latest
+    axios
+      .get("https://api.themoviedb.org/3/movie/latest?api_key=eb01afe2b45b7303c28f1174082827ed&language=it-IT")
+      .then((response) => {
+        store.moviesLatest = response.data.results.slice(0,6)
+      });
+    // Movie Popular
+    axios
+      .get("https://api.themoviedb.org/3/movie/popular?api_key=eb01afe2b45b7303c28f1174082827ed&language=it-IT&page=1")
+      .then((response) => {
+        store.moviesPopular = response.data.results.slice(0,6)
+      });
+    // Movie Rated
+    axios
+      .get("https://api.themoviedb.org/3/movie/top_rated?api_key=eb01afe2b45b7303c28f1174082827ed&language=it-IT&page=1")
+      .then((response) => {
+        store.moviesRated = response.data.results.slice(0,6)
+      });
+    // Movie Uncoming
+    axios
+      .get("https://api.themoviedb.org/3/movie/upcoming?api_key=eb01afe2b45b7303c28f1174082827ed&language=it-IT&page=1")
+      .then((response) => {
+        store.moviesUncoming = response.data.results.slice(0,6)
+      });
+
+
   },
   computed: {
 
@@ -76,9 +116,9 @@ export default {
 <AppLogin v-if="store.loginOk == false"/>
 
 <div v-else>
-  <AppHome v-if="store.loadingResult == fasle" />
-  <AppHeader v-else @searchResult="searchMovies, searchSeries" />
-  <AppMain />
+  <AppHome v-if="store.loadingResult == false" />
+  <AppMain v-else/>
+  <AppHeader  @searchResult="searchMovies, searchSeries" />
   <AppFooter />
 </div>
 

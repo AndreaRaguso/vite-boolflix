@@ -6,19 +6,15 @@
   
   .box {
     display: flex;
-    flex-wrap: wrap;
     width: 100%;
-    margin-top: 10px;
-    margin-bottom: 70px;
-  }
-  
-  h1{
-    font-size: 10px;
+    white-space: nowrap;
+    overflow-x: scroll;
+    overflow-y: hidden;
   }
 
   .item {
     transition: transform .3s;  
-    width: calc(100% / 6 - 20px);
+    min-width: calc(100% / 6 - 20px);
     margin: 5px;
     margin-bottom: 70px;
     border-radius: 20px;
@@ -62,3 +58,36 @@
   .item-poster:hover img{
     border-radius: 7px 7px 0 0;
   }
+
+  .fa-circle-plus,
+  .fa-circle-check,
+  .fa-circle-chevron-down{
+    background-color: white;
+    color: #181818;
+    border-radius: 50%;
+    border: 1px solid white;
+    cursor: pointer;
+  }
+
+  .fa-circle-play{
+    cursor: pointer;
+  }
+
+
+  .yellow-star{
+    color: rgb(236, 205, 26);
+  }
+
+  .font-card{
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  .flag-card{
+    height: 20px;
+    width: 30px;
+  }
+
+  .scroll::-webkit-scrollbar {
+    display: none;
+}

@@ -28,46 +28,45 @@ export default {
     axios
       .get("https://api.themoviedb.org/3/tv/latest?api_key=eb01afe2b45b7303c28f1174082827ed&language=it-IT")
       .then((response) => {
-        store.seriesLatest = response.data.results.slice(0,6)
+        store.seriesLatest = response.data.results
       });
 
     // Serie Popular
     axios
       .get("https://api.themoviedb.org/3/tv/popular?api_key=eb01afe2b45b7303c28f1174082827ed&language=it-IT")
       .then((response) => {
-        store.seriesPopular = response.data.results.slice(0,6)
+        store.seriesPopular = response.data.results
       });
     // Serie Top Rated
     axios
       .get("https://api.themoviedb.org/3/tv/top_rated?api_key=eb01afe2b45b7303c28f1174082827ed&language=it-IT")
       .then((response) => {
-        store.seriesRated = response.data.results.slice(0,6)
+        store.seriesRated = response.data.results
       });
     // Movie Latest
     axios
       .get("https://api.themoviedb.org/3/movie/latest?api_key=eb01afe2b45b7303c28f1174082827ed&language=it-IT")
       .then((response) => {
-        store.moviesLatest = response.data.results.slice(0,6)
+        store.moviesLatest = response.data.results
       });
     // Movie Popular
     axios
       .get("https://api.themoviedb.org/3/movie/popular?api_key=eb01afe2b45b7303c28f1174082827ed&language=it-IT&page=1")
       .then((response) => {
-        store.moviesPopular = response.data.results.slice(0,6)
+        store.moviesPopular = response.data.results
       });
     // Movie Rated
     axios
       .get("https://api.themoviedb.org/3/movie/top_rated?api_key=eb01afe2b45b7303c28f1174082827ed&language=it-IT&page=1")
       .then((response) => {
-        store.moviesRated = response.data.results.slice(0,6)
+        store.moviesRated = response.data.results
       });
     // Movie Uncoming
     axios
       .get("https://api.themoviedb.org/3/movie/upcoming?api_key=eb01afe2b45b7303c28f1174082827ed&language=it-IT&page=1")
       .then((response) => {
-        store.moviesUncoming = response.data.results.slice(0,6)
+        store.moviesUncoming = response.data.results
       });
-
 
   },
   computed: {
@@ -116,8 +115,7 @@ export default {
 <AppLogin v-if="store.loginOk == false"/>
 
 <div v-else>
-  <AppHome v-if="store.loadingResult == false" />
-  <AppMain v-else/>
+  <AppMain/>
   <AppHeader  @searchResult="searchMovies, searchSeries" />
   <AppFooter />
 </div>

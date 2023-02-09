@@ -19,7 +19,7 @@ export default {
             <img src="https://i.ibb.co/r5krrdz/logo.png" alt="" />
         </li>
 
-        <input class="ms-auto h-50" type="text" name="nameUSer" v-model="store.nameProfile" placeholder="Nome Profilo:" id="">
+        <input class="ms-auto h-50" type="text" name="nameUSer" v-model="store.nameProfile" v-on:keyup.enter="store.loginOk = true" placeholder="Nome Profilo:" id="">
         <button class="buttons me-5 border-0" @click="store.loginOk = true">Sign In</button>
 
     </div>

@@ -7,6 +7,7 @@ export const store = reactive({
     starRate: 0,
     loadingResult: false,
     loginOk: false,
+    unknowImage : 'https://www.pngitem.com/pimgs/m/236-2369728_unknown-person-hd-png-download.png',
 
 
 

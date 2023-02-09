@@ -15,8 +15,8 @@ export default {
 <template>
 
     <!-- LINKS -->
-    <section class="link">
-        <div class="logos d-flex">
+    <section class="link w-50 mx-auto">
+        <div class="logos d-flex mb-3">
             <a href="#"><i class="fab fa-facebook-square fa-2x logo"></i></a>
             <a href="#"><i class="fab fa-instagram fa-2x logo"></i></a>
             <a href="#"><i class="fab fa-twitter fa-2x logo"></i></a>

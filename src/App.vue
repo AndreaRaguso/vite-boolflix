@@ -24,9 +24,10 @@ export default {
   },
   created() {
     axios
-      .get("https://api.themoviedb.org/3/search/movie?api_key=eb01afe2b45b7303c28f1174082827ed")
+      .get("https://api.themoviedb.org/3/search/movie?api_key=eb01afe2b45b7303c28f1174082827ed&query=natale")
       .then((response) => {
         store.moviesResult = response.data.results
+        store.loadingResult = true
       });
   },
   computed: {
@@ -74,12 +75,12 @@ export default {
   
 <AppLogin v-if="store.loginOk == false"/>
 
-<span v-else>
+<div v-else>
   <AppHome v-if="store.loadingResult == fasle" />
   <AppHeader v-else @searchResult="searchMovies, searchSeries" />
   <AppMain />
   <AppFooter />
-</span>
+</div>
 
 
 </template>

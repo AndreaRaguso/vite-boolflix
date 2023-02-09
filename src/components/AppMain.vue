@@ -60,11 +60,12 @@ export default {
 
                     <div class="item" v-for="movie, index in store.moviesResult">
                         <div class="item-poster w-100">
-                            <img :src="'https://image.tmdb.org/t/p/w342' + movie.poster_path" alt="">
+                            <img v-if="movie.poster_path == null" :src="store.unknowImage" alt="unknow image">
+                            <img v-else :src="'https://image.tmdb.org/t/p/w342' + movie.poster_path" alt="">
                         </div>
                         <div class="info-item">
                             <div>{{ movie.title }}</div>
-                            <div>{{ movie.original_title }}</div>
+                            <div v-if="movie.title != movie.original_title">{{ movie.original_title }}</div>
                             <img class="h-50" :src="flagMovie(index)" alt="">
                             <div class="d-flex w-100">
                                 <img v-for="x in starMovie(index)" src="https://img.icons8.com/color/20/null/filled-star--v1.png" />
@@ -81,11 +82,12 @@ export default {
             <div class="box">
                 <div class="item" v-for="serie, i in store.seriesResult">
                     <div class="item-poster">
-                        <img :src="'https://image.tmdb.org/t/p/w342' + serie.poster_path" alt="">
+                        <img v-if="serie.poster_path == null" :src="store.unknowImage" alt="unknow image">
+                        <img v-else :src="'https://image.tmdb.org/t/p/w342' + serie.poster_path" alt="">
                     </div>
                     <div class="info-item">
                         <div>{{ serie.name }}</div>
-                        <div>{{ serie.original_name }}</div>
+                        <div v-if="serie.name != serie.original_name">{{ serie.original_name }}</div>
                         <img :src="flagSerie(i)" alt="">
                         <div class="d-flex">
                             <img v-for="x in starSerie(i)" src="https://img.icons8.com/color/20/null/filled-star--v1.png" />

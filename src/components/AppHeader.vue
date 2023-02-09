@@ -29,11 +29,11 @@ export default {
         </div>
         <nav class="main-nav">
             <a href="#home">Home</a>
-            <a href="#tvShows">TV Shows</a>
-            <a href="#movies">Movies</a>
-            <a href="#originals">Originals</a>
-            <a href="#">Recently Added</a>
-            <a target="_blank" href="https://codepen.io/cb2307/full/NzaOrm">Portfolio</a>
+            <a href="#tvShows">Serie TV</a>
+            <a href="#movies">Film</a>
+            <a href="#originals">Nuovi e popolari</a>
+            <a href="#">La mia lista</a>
+            <a href="#">Sfoglia per lingua</a>
         </nav>
 
         <nav class="d-flex sub-nav  ms-auto  pe-5">

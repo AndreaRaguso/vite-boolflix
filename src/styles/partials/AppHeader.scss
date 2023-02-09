@@ -57,9 +57,19 @@ header {
     box-shadow: none;
     border: 1px solid white;
     border-radius: none;
-    padding: 5px 20px;
+    padding: 5px 40px;
     color: white;
     font-size: 20px;
+}
+
+.cross-search{
+    color: white;
+    border: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 12px 20px;
+    cursor: pointer;
 }
 
 .search-button{
@@ -68,7 +78,7 @@ header {
     border: none;
     position: absolute;
     top: 7px;
-    right: 5px;
+    left: 5px;
 }
 
 .image-profile{

@@ -1,7 +1,7 @@
 
 -- Implementare cerca un attore 1.30
 -- Migliorare Login page con implementazione price e login domani
-<!-- -- Trasformare ricerca tipo ajax (domanda) --> @keyup 30 domani
+-- @keyup 30 domani
 -- Fare Milestone 5 e 6 domani
 
 

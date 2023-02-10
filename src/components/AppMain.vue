@@ -49,28 +49,28 @@ export default {
             <div class="location" id="home">
                 <strong class="box-title" id="home">Film più Popolari</strong>
                 <div class="box scroll">
-                    <AppCard v-for="movie in store.moviesPopular" :card="movie"/>
+                    <AppCard v-for="movie in store.homes[3].array" :card="movie"/>
                 </div>
             </div>
 
             <strong class="box-title" id="myList">Serie TV più Popolari</strong>
             <div class="box scroll">
-                <AppCard v-for="serie in store.seriesPopular" :card="serie"/>
+                <AppCard v-for="serie in store.homes[0].array" :card="serie"/>
             </div>
 
             <strong class="box-title" id="home">Film in arrivo</strong>
             <div class="box scroll">
-                <AppCard v-for="movie in store.moviesUncoming" :card="movie"/>
+                <AppCard v-for="movie in store.homes[5].array" :card="movie"/>
             </div>
 
             <strong class="box-title" id="myList">Serie TV più Apprezzate</strong>
             <div class="box scroll">
-                <AppCard v-for="serie in store.seriesRated" :card="serie"/>
+                <AppCard v-for="serie in store.homes[1].array" :card="serie"/>
             </div>
 
             <strong class="box-title" id="home">Film più Amati</strong>
             <div class="box scroll">
-                <AppCard v-for="movie in store.moviesRated" :card="movie" />
+                <AppCard v-for="movie in store.homes[4].array" :card="movie" />
             </div>
 
         </section> 

@@ -29,6 +29,15 @@ export default {
                 case 'hi':
                     lang = 'in';
                     break;
+                case 'de':
+                    lang = 'gm';
+                    break;
+                case 'ko':
+                    lang = 'kn';
+                    break;
+                case 'zh':
+                    lang = 'ch';
+                    break;
             }
 
             const flag = 'https://www.worldometers.info//img/flags/small/tn_' + lang + '-flag.gif';

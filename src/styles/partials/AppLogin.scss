@@ -397,6 +397,12 @@ li a {
     font-size: 16px;
 }
 
+.input-p{
+    height: 37px;
+    padding: 0 10px;
+    border-radius: 10px 0 0 10px;
+}
+
 @media (min-width: 250px) and (max-width: 980px) {
     body {
       display: flex;

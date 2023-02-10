@@ -14,15 +14,31 @@ export const store = reactive({
     moviesResult: [],
     seriesResult: [],
 
-    //Film Arrays per la Home
-    moviesUncoming: [],
-    moviesRated: [],
-    moviesPopular: [],
-    moviesLatest: [],
-
-    //Serie Arrays per la Home
-    seriesRated: [],
-    seriesPopular: [],
-    seriesLatest: [],
+    homes:[
+        {
+            name: 'tv/popular',
+            array: [],
+        },
+        {
+            name: 'tv/top_rated',
+            array: [],
+        },
+        {
+            name: 'movie/latest',
+            array: [],
+        },
+        {
+            name: 'movie/popular',
+            array: [],
+        },
+        {
+            name: 'movie/top_rated',
+            array: [],
+        },
+        {
+            name: 'movie/upcoming',
+            array: [],
+        },
+    ]
 
 });

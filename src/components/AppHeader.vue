@@ -6,11 +6,11 @@ export default {
     name: 'AppHeader',
     data() {
         return {
-            store
+            store,
         }
     },
     methods: {
-
+        
     },
     computed: {
 
@@ -28,7 +28,7 @@ export default {
                     alt="Logo Image"></a>
         </div>
         <nav class="main-nav">
-            <a href="#home" @click="store.loadingResult = false, store.searchText = '' " >Home</a>
+            <a href="#home" @click="store.loadingResult = false, store.searchText = ''">Home</a>
             <a href="#tvShows">Serie TV</a>
             <a href="#movies">Film</a>
             <a href="#originals">Nuovi e popolari</a>
@@ -41,12 +41,13 @@ export default {
                 <button type="submit" class="search-button" @click="$emit('searchResult')">
                     <i class="fas fa-search fs-4"></i>
                 </button>
-                <input class="search-input" type="text" placeholder="Cerca un Titolo..." v-model="store.searchText" v-on:keyup="$emit('searchResult')">
+                <input class="search-input" type="text" placeholder="Cerca un Titolo..." v-model="store.searchText" @keyup="$emit('searchResult')">
                 <i class="fa-solid fa-xmark cross-search" v-if="store.searchText != ''" @click="store.searchText = ''"></i>
             </div>
             <a href="#" class="mx-3">Bambini</a>
             <a href="#" class="mx-3"><i class="fas fa-bell sub-nav-logo fs-4"></i></a>
-            <img class="image-profile" src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png" alt="">
+            <img class="image-profile" src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"
+                alt="">
             <a href="#" class="mx-3" v-if="store.nameProfile == ''">Unknow</a>
             <a href="#" class="mx-3" v-else>{{ store.nameProfile }}</a>
         </nav>

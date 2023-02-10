@@ -1,4 +1,10 @@
 
+-- efiicenza axios 
+-- collegare link id
+-- numero sulla campanella
+-- chevron affianco campanella
+-- sezione serie tv e film con ricerca
+-- card greande info item
 -- Implementare cerca un attore 1.30
 -- Migliorare Login page con implementazione price e login domani
 -- @keyup 30 domani

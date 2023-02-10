@@ -25,5 +25,4 @@ export const store = reactive({
     seriesPopular: [],
     seriesLatest: [],
 
-
 });

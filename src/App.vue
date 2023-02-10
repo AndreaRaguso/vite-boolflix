@@ -3,7 +3,6 @@
 import axios from 'axios';
 import AppLogin from './components/AppLogin.vue';
 import AppHeader from './components/AppHeader.vue';
-import AppHome from './components/AppHome.vue';
 import AppMain from './components/AppMain.vue';
 import AppFooter from './components/AppFooter.vue';
 import { store } from './store.js';
@@ -14,7 +13,6 @@ export default {
     AppLogin,
     AppHeader,
     AppMain,
-    AppHome,
     AppFooter
   },
   data() {
